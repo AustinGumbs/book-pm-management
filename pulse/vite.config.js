@@ -6,14 +6,11 @@ import react from '@vitejs/plugin-react';
 // subpath alongside it, so both ship from the same GitHub Pages site.
 export default defineConfig(({ mode }) => {
   const isYorku = mode === 'yorku';
-  const isDev = mode === 'development';
   return {
     plugins: [react()],
-    base: isDev
-      ? '/'
-      : isYorku
-        ? '/book-pm-management/pulse/yorku/'
-        : '/book-pm-management/pulse/',
+    base: isYorku
+      ? '/book-pm-management/pulse/yorku/'
+      : '/book-pm-management/pulse/',
     build: {
       outDir: isYorku ? 'dist/pulse/yorku' : 'dist/pulse',
       emptyOutDir: true,

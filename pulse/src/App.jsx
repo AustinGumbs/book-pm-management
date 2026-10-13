@@ -16,7 +16,6 @@ import Dashboard from './components/Dashboard';
 import LogForm from './components/LogForm';
 import History from './components/History';
 import WeeklySummary from './components/WeeklySummary';
-import Intramurals from './components/Intramurals';
 import useEntries from './hooks/useEntries';
 import brand from './brand';
 
@@ -27,7 +26,7 @@ import brand from './brand';
  */
 export default function App() {
   const { entries, add, update, remove, clearAll, loadSampleData } = useEntries();
-  const [view, setView] = useState(0); // 0=Dashboard, 1=Log, 2=History, 3=Summary, 4=Sports
+  const [view, setView] = useState(0); // 0=Dashboard, 1=Log, 2=History, 3=Summary
   const [editEntry, setEditEntry] = useState(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [confirmClear, setConfirmClear] = useState(false);
@@ -56,17 +55,6 @@ export default function App() {
       value: 250,
       unit: 'ml',
       note: '',
-      timestamp: new Date().toISOString(),
-    });
-  }, [add]);
-
-  // Quick gym check-in (default 60 min)
-  const handleQuickGym = useCallback(() => {
-    add({
-      type: 'gym',
-      value: 60,
-      unit: 'minutes',
-      note: 'Gym check-in',
       timestamp: new Date().toISOString(),
     });
   }, [add]);
@@ -117,7 +105,6 @@ export default function App() {
             entries={entries}
             onQuickAdd={handleQuickAdd}
             onQuickWater={handleQuickWater}
-            onQuickGym={handleQuickGym}
           />
         )}
         {view === 1 && (
@@ -135,7 +122,6 @@ export default function App() {
           />
         )}
         {view === 3 && <WeeklySummary />}
-        {view === 4 && <Intramurals />}
       </Box>
 
       <Box component="footer" sx={{ py: 2, px: 3, textAlign: 'center', color: 'text.secondary', borderTop: 1, borderColor: 'divider', fontSize: '0.85rem' }}>

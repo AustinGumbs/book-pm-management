@@ -18,7 +18,6 @@ import RestaurantIcon from '@mui/icons-material/Restaurant';
 import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
 import WaterDropIcon from '@mui/icons-material/WaterDrop';
 import BedtimeIcon from '@mui/icons-material/Bedtime';
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import TrendChart from './TrendChart';
 import { tokens } from '../theme';
@@ -28,7 +27,6 @@ const TYPE_ICONS = {
   steps: DirectionsWalkIcon,
   water: WaterDropIcon,
   sleep: BedtimeIcon,
-  gym: FitnessCenterIcon,
 };
 
 const TYPE_LABELS = {
@@ -36,7 +34,6 @@ const TYPE_LABELS = {
   steps: 'Steps',
   water: 'Water',
   sleep: 'Sleep',
-  gym: 'Gym',
 };
 
 const TYPE_UNITS = {
@@ -44,7 +41,6 @@ const TYPE_UNITS = {
   steps: 'steps',
   water: 'ml',
   sleep: 'hours',
-  gym: 'minutes',
 };
 
 /**

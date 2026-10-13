@@ -13,7 +13,6 @@ import RestaurantIcon from '@mui/icons-material/Restaurant';
 import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
 import WaterDropIcon from '@mui/icons-material/WaterDrop';
 import BedtimeIcon from '@mui/icons-material/Bedtime';
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import CheckIcon from '@mui/icons-material/Check';
 import { tokens } from '../theme';
 
@@ -22,7 +21,6 @@ const TYPES = [
   { value: 'steps', label: 'Steps', icon: <DirectionsWalkIcon />, unit: 'steps', placeholder: 'e.g. 8000' },
   { value: 'water', label: 'Water', icon: <WaterDropIcon />, unit: 'ml', placeholder: 'e.g. 250' },
   { value: 'sleep', label: 'Sleep', icon: <BedtimeIcon />, unit: 'hours', placeholder: 'e.g. 7.5' },
-  { value: 'gym', label: 'Gym', icon: <FitnessCenterIcon />, unit: 'minutes', placeholder: 'e.g. 45' },
 ];
 
 const WATER_PRESETS = [250, 350, 500, 750];

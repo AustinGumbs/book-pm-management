@@ -79,20 +79,6 @@ function generateSeedData() {
       unit: 'hours',
       note: '',
     });
-
-    // --- Gym: ~3–4 days per week, 45–90 min ---
-    if (Math.random() > 0.45) {
-      const gymMinutes = 45 + Math.floor(Math.random() * 45);
-      const gymHour = 17 + Math.random() * 2; // 5–7 PM
-      entries.push({
-        id: uuidv4(),
-        type: 'gym',
-        timestamp: `${dateStr}T${String(Math.floor(gymHour)).padStart(2, '0')}:${String(Math.floor((gymHour % 1) * 60)).padStart(2, '0')}:00.000Z`,
-        value: gymMinutes,
-        unit: 'minutes',
-        note: '',
-      });
-    }
   }
 
   return entries;

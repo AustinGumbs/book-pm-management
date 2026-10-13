@@ -1,18 +1,18 @@
 import React, { useMemo } from 'react';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import WaterDropIcon from '@mui/icons-material/WaterDrop';
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import MetricCard from './MetricCard';
 
-const METRIC_TYPES = ['food', 'steps', 'water', 'sleep', 'gym'];
+const METRIC_TYPES = ['food', 'steps', 'water', 'sleep'];
 
 /**
- * Dashboard screen: five metric cards showing today's totals with mini trends,
+ * Dashboard screen: four metric cards showing today's totals with mini trends,
  * plus quick-add shortcuts.
  */
-export default function Dashboard({ entries, onQuickAdd, onQuickWater, onQuickGym }) {
+export default function Dashboard({ entries, onQuickAdd, onQuickWater }) {
   // Today's date string for filtering
   const todayStr = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD
 
@@ -57,72 +57,35 @@ export default function Dashboard({ entries, onQuickAdd, onQuickWater, onQuickGy
 
   return (
     <Box sx={{ maxWidth: 900, mx: 'auto', px: 2, py: 3 }}>
-      {/* Welcome message */}
-      <Box sx={{ mb: 3 }}>
-        <Typography
-          variant="h5"
-          sx={{
-            fontSize: '1.2rem',
-            mb: 0.5,
-          }}
-        >
-          Welcome back
-        </Typography>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          sx={{ lineHeight: 1.5 }}
-        >
-          Here's your wellness snapshot for today. Log a meal, a walk, some water, or last night's sleep to keep your streak going.
-        </Typography>
-      </Box>
-
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 3, flexWrap: 'wrap', gap: 1 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 3 }}>
         <Typography variant="h5" sx={{ fontSize: '1.2rem' }}>
           Today
         </Typography>
-        <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-          <Button
-            variant="outlined"
-            size="small"
-            startIcon={<FitnessCenterIcon />}
-            onClick={onQuickGym}
-            id="quick-gym-button"
-            sx={{ fontSize: '0.75rem' }}
-          >
-            Gym check-in
-          </Button>
-          <Button
-            variant="outlined"
-            size="small"
-            startIcon={<WaterDropIcon />}
-            onClick={onQuickWater}
-            id="quick-water-button"
-            sx={{ fontSize: '0.75rem' }}
-          >
-            +250 ml
-          </Button>
-        </Box>
+        <Button
+          variant="outlined"
+          size="small"
+          startIcon={<WaterDropIcon />}
+          onClick={onQuickWater}
+          id="quick-water-button"
+          sx={{ fontSize: '0.75rem' }}
+        >
+          +250 ml
+        </Button>
       </Box>
 
-      {/* Metric cards — flex layout adapts to 5 cards */}
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+      {/* Metric cards in a 2×2 grid */}
+      <Grid container spacing={2}>
         {metrics.map((m) => (
-          <Box
-            key={m.type}
-            sx={{
-              flex: { xs: '1 1 calc(50% - 8px)', sm: '1 1 calc(33.333% - 11px)', md: '1 1 calc(20% - 13px)' },
-            }}
-          >
+          <Grid size={{ xs: 6, sm: 6, md: 3 }} key={m.type}>
             <MetricCard
               type={m.type}
               todayTotal={m.todayTotal}
               trendData={m.trendData}
               onQuickAdd={() => onQuickAdd(m.type)}
             />
-          </Box>
+          </Grid>
         ))}
-      </Box>
+      </Grid>
     </Box>
   );
 }

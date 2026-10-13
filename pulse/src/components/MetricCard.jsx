@@ -9,7 +9,6 @@ import RestaurantIcon from '@mui/icons-material/Restaurant';
 import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
 import WaterDropIcon from '@mui/icons-material/WaterDrop';
 import BedtimeIcon from '@mui/icons-material/Bedtime';
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import TrendChart from './TrendChart';
 import { tokens } from '../theme';
 
@@ -18,7 +17,6 @@ const METRIC_CONFIG = {
   steps: { icon: DirectionsWalkIcon, label: 'Steps', unit: 'steps', color: tokens.violet },
   water: { icon: WaterDropIcon, label: 'Water', unit: 'ml', color: tokens.violet },
   sleep: { icon: BedtimeIcon, label: 'Sleep', unit: 'hours', color: tokens.violet },
-  gym: { icon: FitnessCenterIcon, label: 'Gym', unit: 'min', color: tokens.violet },
 };
 
 /**
