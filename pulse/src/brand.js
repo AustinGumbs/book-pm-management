@@ -34,7 +34,12 @@ const BRANDS = {
   },
 };
 
-const key = import.meta.env.VITE_BRAND === 'yorku' ? 'yorku' : 'pulse';
+// The Vite mode is checked too, so `--mode yorku` selects York U Fitness even
+// in environments that don't load .env files (some browser IDEs skip them).
+const key =
+  import.meta.env.VITE_BRAND === 'yorku' || import.meta.env.MODE === 'yorku'
+    ? 'yorku'
+    : 'pulse';
 
 export const brand = BRANDS[key];
 export default brand;
