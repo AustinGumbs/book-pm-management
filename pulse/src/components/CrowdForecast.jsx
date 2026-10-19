@@ -53,10 +53,15 @@ const TIERS = {
 const CLASS_TIMETABLE = [
   { day: 1, start: 10, end: 11.5, name: 'KINE 1010 Lecture' },   // Mon
   { day: 1, start: 14, end: 15.5, name: 'BIOL 1000 Lab' },       // Mon
+  { day: 1, start: 16, end: 18, name: 'Afternoon Class' },       // Mon 4–6 PM
   { day: 2, start: 9,  end: 10.5, name: 'PSYC 1010 Lecture' },   // Tue
+  { day: 2, start: 16, end: 18, name: 'Afternoon Class' },       // Tue 4–6 PM
   { day: 3, start: 13, end: 14.5, name: 'MATH 1500 Tutorial' },  // Wed
+  { day: 3, start: 16, end: 18, name: 'Afternoon Class' },       // Wed 4–6 PM
   { day: 4, start: 10, end: 11.5, name: 'KINE 1010 Lecture' },   // Thu
+  { day: 4, start: 16, end: 18, name: 'Afternoon Class' },       // Thu 4–6 PM
   { day: 5, start: 11, end: 12.5, name: 'CHEM 1000 Lab' },       // Fri
+  { day: 5, start: 16, end: 18, name: 'Afternoon Class' },       // Fri 4–6 PM
 ];
 
 // ---------------------------------------------------------------------------
